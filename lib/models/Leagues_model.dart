@@ -1,28 +1,31 @@
 class LeaguesModel {
-  final String leagueKey;
+  final int leagueKey;
   final String leagueName;
-  final String countryKey;
+  final int countryKey;
   final String countryName;
-  final String leagueLogo;
-  final String countryLogo;
+  final String? leagueLogo;
+  final String? countryLogo;
+  
 
-  LeaguesModel({
+  LeaguesModel( {
     required this.leagueKey,
     required this.leagueName,
     required this.countryKey,
     required this.countryName,
-    required this.leagueLogo,
-    required this.countryLogo,
+     this.leagueLogo,
+     this.countryLogo,
   });
 
   factory LeaguesModel.fromJson(Map<String, dynamic> json) {
+   
+
     return LeaguesModel(
-      leagueKey: json['league_key'] as String,
+      leagueKey: json['league_key'] as int,
       leagueName: json['league_name'] as String,
-      countryKey: json['country_key'] as String,
+      countryKey: json['country_key'] as int,
       countryName: json['country_name'] as String,
-      leagueLogo: json['league_logo'] as String,
-      countryLogo: json['country_logo'] as String,
+      leagueLogo: json['league_logo'] as String?,
+      countryLogo: json['country_logo'] as String?,
     );
   }
 }
